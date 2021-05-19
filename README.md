@@ -12,3 +12,8 @@ This contains login script by using object-oriented programming style in PHP & M
 ### General Info
 ***
 This contains login script by using object-oriented programming style in PHP & MySQL it acts as backend for this project. For frontend, using HTML5, CSS & Bootstrap.
+
+### Technologies
+***
+PHP, MySQL, Bootsratp, HTML5, CSS, JavaScript, jQuery
+
