@@ -1,4 +1,4 @@
-# login-oops-php-mysql-session-bootsrap
+# login-oops-php-mysql-session-bootstrap
 ***
 This contains login script by using object-oriented programming style in PHP & MySQL. 
 
