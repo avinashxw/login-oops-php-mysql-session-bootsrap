@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(!empty($_SESSION['uid'])) {
+if(empty($_SESSION['uid'])) {
     require_once './views/dashboard.php';
 }
 else {
