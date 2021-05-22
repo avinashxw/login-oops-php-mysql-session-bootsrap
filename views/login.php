@@ -5,7 +5,7 @@
                 <form action="#" method="POST" id="formlogin" onsubmit="return validateform();">
                     <img class="mb-4" src="./assets/images/login.png" alt="SignIn" height="50">
                     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-                    <h3 class="h3 mb-3 fw-normal" id="errmessage"></h3>
+                    <h3 style="color: red; font-size: 1rem;" id="errmessage"></h3>
 
                     <div class="form-floating">
                         <input type="email" class="form-control" id="email" name="email">
@@ -22,15 +22,14 @@
         </div>
     </div>
 <?php include('include/footer.php'); ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 function validateform() {
-    //var $valid = true;
+    var $valid = true;
     var email = $('#email').val();
-    alert();
     var password = $('#password').val();
-    alert('Email: '+email);
     console.log('Email: '+email+' | Password: '+password);
-    /* if(email=='') {
+    if(email=='') {
         $('#errmessage').html('Please fill the email address!');
         $valid = false;
     }
@@ -38,6 +37,6 @@ function validateform() {
         $('#errmessage').html('Please fill the password!');
         $valid = false;
     }
-    return $valid; */
+    return $valid;
 }
 </script>
