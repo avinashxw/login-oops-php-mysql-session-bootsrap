@@ -14,3 +14,6 @@ This contains login script by using object-oriented programming style in PHP & M
 ***
 PHP, MySQL, Bootsratp, HTML5, CSS, JavaScript, jQuery
 
+### Screenshots
+<img src="/assets/images/login-screenshot.png" alt="Login screenshot" title="Login">
+<img src="/assets/images/dashboard-screenshot.png" alt="Dashboard screenshot" title="Dashboard">
