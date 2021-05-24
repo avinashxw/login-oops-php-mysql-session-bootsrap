@@ -1,5 +1,5 @@
 <?php
-namespace LoginQ;
+namespace Loginq;
 
 /* 
 * This class establishes a connection object to access the database based on the request. 
@@ -23,7 +23,7 @@ class DataSource {
     * Every objects lives only for a request.
     */
     function __construct() {
-        $this->con = $this->getConeection();
+        $this->con = $this->getConnection();
     }
 
     /*
@@ -31,11 +31,11 @@ class DataSource {
     *
     * @return \mysqli  
     */
-    public funciton getConnection() {
-        $con = new \mysqli(self::HOSTNAME, self::USERNAME, , self::PASSWORD, , self::DBNAME);
+    public function getConnection() {
+        $con = new \mysqli(self::HOSTNAME, self::USERNAME, self::PASSWORD, self::DBNAME);
 
         if(mysqli_connect_errno()) {
-            trigger_error('Problem with the connection to the database!')
+            trigger_error('Problem with the connection to the database!');
         }
 
         $con->set_charset('utf8');
@@ -52,22 +52,22 @@ class DataSource {
     public function select($qry,$paramType='',$arrayParam) {
         
         $stmt = $this->con->prepare($qry);
-
+        
         if(!empty($paramType) && !empty($arrayParam)) {
-            $this->bindQueryParams($stmt,$paramType,$arrayParam);
+            $this->bindQueryParams($stmt, $paramType, $arrayParam);
         }
 
+
         $stmt->execute();
-
-        $resut = $stmt->get_result();
-
-        if($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
+        $result = $stmt->get_result();
+        echo $result->num_rows;
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
                 $resultset[] = $row;
             }
         }
         
-        if(!empty($resultset)) {
+        if (! empty($resultset)) {
             return $resultset;
         }
     }
@@ -112,7 +112,7 @@ class DataSource {
     * @param string $paramType
     * @param array $arrayParam
     */
-    public function bindQueryParams($qry,$paramType,$arrayParam=arrau\u) {
+    public function bindQueryParams($stmt,$paramType,$arrayParam=array()) {
         
         $paramValueReference[] = & $paramType;
         for ($i = 0; $i < count($arrayParam); $i ++) {

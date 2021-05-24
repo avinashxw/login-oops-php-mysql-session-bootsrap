@@ -1,16 +1,16 @@
 <?php 
-namespace LoginQ;
+namespace Loginq;
 
-use \LoginQ\DataSource;
+use \Loginq\DataSource;
 
 class Member {
-    private $con; // db connection name
+    private $dbcon; // db connection name
 
-    private $ds; // DataSource derived
+    private $ds; 
 
     function __construct() {
-        require_once "DaatSource.php";
-        $this->db = new DataSoruce();
+        require_once "DataSource.php";
+        $this->db = new DataSource();
     }
 
     /* 
@@ -31,11 +31,12 @@ class Member {
     */
     public function processLogin($userid,$password) {
         $hash = md5($password);
-        $qry = 'SELECT id FROM registered_users WHERE user_name = ? AND password = ?';
+        $qry = 'SELECT id FROM registered_users WHERE email = ? AND pass = ?';
         $paramType = 'ss'; 
-        $arrayParam = array($userid,$password);
+        $arrayParam = array($userid,$hash);
 
         $result =  $this->db->select($qry,$paramType,$arrayParam);
+        
         if(!empty($result)) {
             $_SESSION['user_id'] = $result[0]['id'];
             return true;

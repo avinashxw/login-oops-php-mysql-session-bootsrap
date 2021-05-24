@@ -2,7 +2,12 @@
     <div class="container mb-4" style=" margin: auto; width: 25%;">
         <div class="row">
             <main class="form-signin">
-                <form action="#" method="POST" id="formlogin" onsubmit="return validateform();">
+            <?php 
+            if(!empty($_SESSION)) {
+                print_r($_SESSION);
+            }
+            ?>
+                <form action="auth.php" method="POST" id="formlogin" onsubmit="return validateform();">
                     <img class="mb-4" src="./assets/images/login.png" alt="SignIn" height="50">
                     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
                     <h3 style="color: red; font-size: 1rem;" id="errmessage"></h3>
